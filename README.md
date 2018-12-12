@@ -26,6 +26,13 @@ The full list can be found in the file `passgan_gen_passwords.txt`.
 
 
 <h3> Cracking counterstrike.cn password hashes </h3>
+After poking around the web, I found a list of MD5 password hashes that were leaked from coutnerstrike.cn which has 239,525 hashes (https://hashes.org/leaks.php?id=674). This is a considerably smaller dataset than the other ones that were tested in the PassGAN paper (RockYou had around 32 million, LinkedIn 6.5 million). 
+
+Using the list of PassGAN's passwords, PassGAN was able to crack: 10,073 / 236,525, which is about 4.26%.
+
+
+
+What I later realized from looking at the list of hashes and plaintext cracked passwords that can be downloaded from the original hashes.org website, was that because this site was operating in China, most of its users were most likely Chinese and thus many passwords were actually in Chinese, and not real English words (i.e. `zhangjinhao`, `zhaozhiyin1`, `caonima0476`). This can be one huge factor that played into the underperformance rate of PassGAN on this password set. Because PassGAN was trained on RockYou, a password list with predominately English-speaking users, most of the passwords that PassGAN was learning from are based on English words, not Chinese. Had I discovered this earlier, a different dataset of passwords would have been more ideal to actually test the performance of PassGAN. Nonetheless, this was an interesting observeration. 
 
 
 
