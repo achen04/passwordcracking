@@ -27,7 +27,8 @@ The full list can be found in the file `passgan_gen_passwords.txt`.
 
 <h3> Cracking counterstrike.cn password hashes </h3>
 After poking around the web, I found a list of MD5 password hashes that were leaked from coutnerstrike.cn which has 239,525 hashes (https://hashes.org/leaks.php?id=674). This is a considerably smaller dataset than the other ones that were tested in the PassGAN paper (RockYou had around 32 million, LinkedIn 6.5 million). I then opened up HashCat and started cracking, by running
-`hashcat -m 0 hashes_parsed.txt passgan_gen_passwords.txt  -o cracked_hashes.txt`
+
+```hashcat -m 0 hashes_parsed.txt passgan_gen_passwords.txt  -o cracked_hashes.txt```
 
 Using the list of PassGAN's passwords, PassGAN was able to crack: 10,073 / 236,525, which is about 4.26%.
 
